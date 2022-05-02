@@ -123,7 +123,7 @@ describe("test ERC20 token contract", async () => {
     it('Should not allow transfering tokens from one account to another if there is no approval', async () => {
         const value = 10;
         const payer = signers[1].address;
-        const spender = signers[2]
+        const spender = signers[2];
         const recipient = signers[3].address;
         await erc20.transfer(payer, value);
 
