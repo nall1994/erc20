@@ -123,11 +123,11 @@ describe("test ERC20 token contract", async () => {
     it('Should not allow transfering tokens from one account to another if there is no approval', async () => {
         const value = 10;
         const payer = signers[1].address;
-        const spender = signers[2].address;
+        const spender = signers[2]
         const recipient = signers[3].address;
         await erc20.transfer(payer, value);
 
-        await expect(erc20.connect(signers[2]).transferFrom(payer, recipient, value))
+        await expect(erc20.connect(spender).transferFrom(payer, recipient, value))
             .to.be.revertedWith('not enough allowance');
     });
 
